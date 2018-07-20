@@ -25,6 +25,11 @@ void test_raw() {
     TEST_FUN2(Node* n = new Node(1,2,3), delete n, "new raw_pointer");
 }
 
+void test_malloc() {
+    Node* p;
+    TEST_FUN2(p = (Node*)malloc(sizeof(Node)), free(p), "malloc & free");
+}
+
 void copy_shared() {
   std::shared_ptr<Node> ptr_ori;
   TEST_FUN1(auto ptr = ptr_ori, "copy shared_ptr");
@@ -39,6 +44,7 @@ int main() {
   test_shared();
   test_unique();
   test_raw();
+  test_malloc();
   copy_shared();
   copy_weaked();
 }

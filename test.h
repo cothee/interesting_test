@@ -1,7 +1,7 @@
 #include <chrono>
 #include <iostream>
 
-#define TEST_NUM 1000000
+#define TEST_NUM 10000000
 
 #define NOTHING() do{} while(0);
 
