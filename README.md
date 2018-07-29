@@ -22,3 +22,11 @@
 | malloc| O2|4.2e-06|
 | copy shared_ptr| O2|3.9e-06|
 | new weak_ptr from shared_ptr| O2|2.9e-06|
+| mutex lock&unlock| O0|14.43|
+| lock_guard lock&unlock| O0|20.61|
+| mutex lock&unlock| O1|0.63|
+| lock_guard lock&unlock| O1|0.61|
+| mutex lock&unlock| O2|0.61|
+| lock_guard lock&unlock| O2|0.65|
+
+
