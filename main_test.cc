@@ -35,13 +35,18 @@ void test_malloc() {
 }
 
 void copy_shared() {
-  std::shared_ptr<Node> ptr_ori;
+  std::shared_ptr<Node> ptr_ori = std::make_shared<Node>(1, 2, 3);
   TEST_FUN1(auto ptr = ptr_ori, "copy shared_ptr");
 }
 
 void copy_weaked() {
-  std::shared_ptr<Node> ptr_ori;
+  std::shared_ptr<Node> ptr_ori = std::make_shared<Node>(1, 2, 3);
   TEST_FUN1(std::weak_ptr<Node> ptr = ptr_ori, "copy weak_ptr from shared_ptr");
+}
+
+void copy_raw() {
+  Node* raw = (Node*)(malloc(sizeof(Node)));
+  TEST_FUN1(Node* ptr = raw, "copy raw pointer from raw pointer");
 }
 
 /*thread related funs*/
@@ -64,6 +69,7 @@ int main() {
   test_malloc();
   copy_shared();
   copy_weaked();
+  copy_raw();
 
   /*thread related case*/
   test_mutex();
